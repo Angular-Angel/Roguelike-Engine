@@ -1,0 +1,6 @@
+This project is a Roguelike Engine that I have been working on. 
+Note that I have been using Code::Blocks to program it, so there is no makefile.
+
+Right now, I have added most of the terrain system and the very beginnings of
+the body system. Next up is a more complicated system for vision, and having walls 
+block it.
