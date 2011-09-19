@@ -1,0 +1,133 @@
+# depslib dependency file v1.0
+1304870023 source:/home/greg/Programming/C++/Roguelike/add.cpp
+
+1304868827 source:/home/greg/Programming/C++/Roguelike/thing.cpp
+
+1316292916 source:/home/greg/Programming/C++/Roguelike/main.cpp
+	<iostream>
+	"LocalArea.h"
+	"Player.h"
+	<ncurses.h>
+	"CharRaster.h"
+
+1310789198 source:/home/greg/Programming/C++/Roguelike/TerrainType.cpp
+	"TerrainType.h"
+
+1311702797 /home/greg/Programming/C++/Roguelike/TerrainType.h
+	<iostream>
+
+1314409795 source:/home/greg/Programming/C++/Roguelike/LocalArea.cpp
+	"LocalArea.h"
+	"Body.h"
+
+1315413136 /home/greg/Programming/C++/Roguelike/LocalArea.h
+	"TerrainType.h"
+	<vector>
+	<iostream>
+	<ncurses.h>
+	<stdexcept>
+	"Rotation.h"
+	"CharRaster.h"
+	"BorderArea.h"
+
+1312841260 source:/home/greg/Programming/C++/Roguelike/Entity.cpp
+	"Entity.h"
+
+1312600469 /home/greg/Programming/C++/Roguelike/Entity.h
+	"Location.h"
+
+1316096627 source:/home/greg/Programming/C++/Roguelike/Player.cpp
+	"Player.h"
+
+1315950512 /home/greg/Programming/C++/Roguelike/Player.h
+	"Body.h"
+	"CurrentArea.h"
+	"Controller.h"
+
+1309813175 source:/home/greg/Programming/C++/Roguelike/Viewer.cpp
+	"Viewer.h"
+
+1309813352 /home/greg/Programming/C++/Roguelike/Viewer.h
+	"Entity.h"
+
+1311277930 source:/home/greg/Programming/C++/Roguelike/Location.cpp
+	"Location.h"
+
+1316291752 /home/greg/Programming/C++/Roguelike/Location.h
+	"LocalArea.h"
+
+1316291751 source:/home/greg/Programming/C++/Roguelike/BorderArea.cpp
+	"BorderArea.h"
+	"LocalArea.h"
+	"Location.h"
+
+1315775234 /home/greg/Programming/C++/Roguelike/BorderArea.h
+	"Rotation.h"
+
+1316271705 source:/home/greg/Programming/C++/Roguelike/CurrentArea.cpp
+	"CurrentArea.h"
+
+1315959281 /home/greg/Programming/C++/Roguelike/CurrentArea.h
+	"Location.h"
+	"DisplayManager.h"
+
+1310511844 /home/greg/Programming/C++/Roguelike/NoBorderException.h
+	<stdexcept>
+
+1310404373 source:/home/greg/Programming/C++/Roguelike/NoBorderException.cpp
+	"NoBorderException.h"
+
+1316285266 source:/home/greg/Programming/C++/Roguelike/LocalAreaBorder.cpp
+	"LocalArea.h"
+	"Location.h"
+
+1315413211 source:/home/greg/Programming/C++/Roguelike/LocalAreaTerrain.cpp
+	"LocalArea.h"
+	"Body.h"
+
+1311790426 source:/home/greg/Programming/C++/Roguelike/WindowUtils.cpp
+	"WindowWrapper.h"
+
+1311790426 /home/greg/Programming/C++/Roguelike/WindowWrapper.h
+	<ncurses.h>
+	"LocalArea.h"
+
+1311893262 source:/home/greg/Programming/C++/Roguelike/Utils.cpp
+	"LocalArea.h"
+
+1311897850 /home/greg/Programming/C++/Roguelike/Utils.h
+
+1316099486 source:/home/greg/Programming/C++/Roguelike/DisplayManager.cpp
+	"DisplayManager.h"
+
+1313630921 /home/greg/Programming/C++/Roguelike/DisplayManager.h
+	"ncurses.h"
+	"CharRaster.h"
+
+1316113002 source:/home/greg/Programming/C++/Roguelike/CharRaster.cpp
+	"CharRaster.h"
+	<iostream>
+
+1316111821 /home/greg/Programming/C++/Roguelike/CharRaster.h
+	<vector>
+	"Rotation.h"
+	<ncurses.h>
+
+1313899739 /home/greg/Programming/C++/Roguelike/Rotation.h
+
+1313899739 source:/home/greg/Programming/C++/Roguelike/Rotation.cpp
+	"Rotation.h"
+
+1316292934 source:/home/greg/Programming/C++/Roguelike/Body.cpp
+	"Body.h"
+	"Controller.h"
+
+1315878906 /home/greg/Programming/C++/Roguelike/Body.h
+	"Location.h"
+
+1315950391 /home/greg/Programming/C++/Roguelike/Controller.h
+	"Body.h"
+
+1315950391 source:/home/greg/Programming/C++/Roguelike/Controller.cpp
+	"Controller.h"
+
