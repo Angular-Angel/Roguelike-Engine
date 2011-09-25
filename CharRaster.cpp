@@ -197,9 +197,9 @@ void CharRaster::print(int x, int y, WINDOW* win)
     {
         for (unsigned int j = 0; j < getWidth(i); j++)
         {
-            wattron(win, getCharAttr(x, y));
+            wattron(win, getCharAttr(j, i));
             mvwaddch(win, y + i, x + j, getChar(j, i));
-            wattroff(win, getCharAttr(x, y));
+            wattroff(win, getCharAttr(j, i));
         }
     }
 }

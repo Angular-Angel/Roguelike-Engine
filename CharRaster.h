@@ -11,7 +11,7 @@ class CharRaster
 {
     public:
         /** Default constructor */
-        CharRaster(unsigned int x = 1, unsigned int y = 1, char ch = ' ', charAttr chAt = REDBLACK);
+        CharRaster(unsigned int x = 1, unsigned int y = 1, char ch = ' ', charAttr chAt = WHITEBLACK);
         /** Default destructor */
         virtual ~CharRaster();
         char getChar(unsigned int x, unsigned int y) {return charImage[y][x];}
