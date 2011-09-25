@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Rotation.h"
+#include "Color.h"
 #include <ncurses.h>
 
 using namespace std;
@@ -10,11 +11,14 @@ class CharRaster
 {
     public:
         /** Default constructor */
-        CharRaster(unsigned int x = 1, unsigned int y = 1, char ch = ' ');
+        CharRaster(unsigned int x = 1, unsigned int y = 1, char ch = ' ', charAttr chAt = REDBLACK);
         /** Default destructor */
         virtual ~CharRaster();
         char getChar(unsigned int x, unsigned int y) {return charImage[y][x];}
         void setChar(unsigned int x, unsigned int y, char ch) {charImage[y][x] = ch;}
+        charAttr getCharAttr(unsigned int x, unsigned int y) {return charAttrs[y][x];}
+        void setCharAttr(unsigned int x, unsigned int y, charAttr ch) {charAttrs[y][x] = ch;}
+        void setCharAttr(unsigned int x, unsigned int y, charAttr chAttr, char ch) {charAttrs[y][x] = chAttr; charImage[y][x] = ch;}
         void rotate(Rotation r);
         void flipHorizontal();
         void flipVertical();
@@ -26,6 +30,7 @@ class CharRaster
     protected:
     private:
         vector<vector<char> > charImage; //!< Member variable "charImage"
+        vector<vector<charAttr> > charAttrs;
 };
 
 #endif // CHARRASTER_H

@@ -1,6 +1,7 @@
 #ifndef BODY_H
 #define BODY_H
 
+#include "Color.h"
 #include "Location.h"
 
 class Controller;
@@ -13,7 +14,7 @@ class Body
 {
     public:
         /** Default constructor */
-        Body(Location, int sight = 1, char rep = '@');
+        Body(Location, int sight = 1, char rep = '@', charAttr col = WHITEBLACK);
         /** Default destructor */
         virtual ~Body();
         /** Access sightRange
@@ -27,6 +28,8 @@ class Body
         Location& getLocation() {return location;}
         void setLocation(Location place) {location = place;}
         char getSymbol() {return symbol;}
+        charAttr getCharAttr() const {return attr;}
+        void setCharAttr(charAttr symbol) {attr = symbol;}
         void setControl(Controller& cont) {control = &cont;}
         void print();
         void moveTo(int x, int y);
@@ -37,6 +40,7 @@ class Body
     Location location;
     int sightRange;
     char symbol;
+    charAttr attr;
 };
 
 #endif // BODY_H

@@ -3,18 +3,20 @@
 
 1304868827 source:/home/greg/Programming/C++/Roguelike/thing.cpp
 
-1316292916 source:/home/greg/Programming/C++/Roguelike/main.cpp
+1316978641 source:/home/greg/Programming/C++/Roguelike/main.cpp
 	<iostream>
 	"LocalArea.h"
 	"Player.h"
 	<ncurses.h>
 	"CharRaster.h"
+	"Color.h"
 
-1310789198 source:/home/greg/Programming/C++/Roguelike/TerrainType.cpp
+1316749342 source:/home/greg/Programming/C++/Roguelike/TerrainType.cpp
 	"TerrainType.h"
 
-1311702797 /home/greg/Programming/C++/Roguelike/TerrainType.h
+1316797248 /home/greg/Programming/C++/Roguelike/TerrainType.h
 	<iostream>
+	"Color.h"
 
 1314409795 source:/home/greg/Programming/C++/Roguelike/LocalArea.cpp
 	"LocalArea.h"
@@ -81,7 +83,7 @@
 	"LocalArea.h"
 	"Location.h"
 
-1315413211 source:/home/greg/Programming/C++/Roguelike/LocalAreaTerrain.cpp
+1316978709 source:/home/greg/Programming/C++/Roguelike/LocalAreaTerrain.cpp
 	"LocalArea.h"
 	"Body.h"
 
@@ -104,13 +106,14 @@
 	"ncurses.h"
 	"CharRaster.h"
 
-1316113002 source:/home/greg/Programming/C++/Roguelike/CharRaster.cpp
+1316973623 source:/home/greg/Programming/C++/Roguelike/CharRaster.cpp
 	"CharRaster.h"
 	<iostream>
 
-1316111821 /home/greg/Programming/C++/Roguelike/CharRaster.h
+1316978670 /home/greg/Programming/C++/Roguelike/CharRaster.h
 	<vector>
 	"Rotation.h"
+	"Color.h"
 	<ncurses.h>
 
 1313899739 /home/greg/Programming/C++/Roguelike/Rotation.h
@@ -118,11 +121,12 @@
 1313899739 source:/home/greg/Programming/C++/Roguelike/Rotation.cpp
 	"Rotation.h"
 
-1316292934 source:/home/greg/Programming/C++/Roguelike/Body.cpp
+1316919444 source:/home/greg/Programming/C++/Roguelike/Body.cpp
 	"Body.h"
 	"Controller.h"
 
-1315878906 /home/greg/Programming/C++/Roguelike/Body.h
+1316919444 /home/greg/Programming/C++/Roguelike/Body.h
+	"Color.h"
 	"Location.h"
 
 1315950391 /home/greg/Programming/C++/Roguelike/Controller.h
@@ -130,4 +134,10 @@
 
 1315950391 source:/home/greg/Programming/C++/Roguelike/Controller.cpp
 	"Controller.h"
+
+1316978582 source:/home/greg/Programming/C++/Roguelike/Color.cpp
+	"Color.h"
+
+1316979302 /home/greg/Programming/C++/Roguelike/Color.h
+	<ncurses.h>
 

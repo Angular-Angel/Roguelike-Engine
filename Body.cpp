@@ -1,7 +1,7 @@
 #include "Body.h"
 #include "Controller.h"
 
-Body::Body(Location place, int sight, char rep) : location(place), sightRange(sight), symbol(rep), control(NULL)
+Body::Body(Location place, int sight, char rep, charAttr col) : location(place), sightRange(sight), symbol(rep), attr(col), control(NULL)
 {
     location.getLocalArea().addBody(*this);
 }

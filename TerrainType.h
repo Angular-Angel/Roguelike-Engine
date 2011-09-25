@@ -2,13 +2,14 @@
 #define TERRAINTYPE_H
 
 #include <iostream>
+#include "Color.h"
 using namespace std;
 
 class TerrainType
 {
     public:
         /** char constructor */
-        TerrainType(char display = '.', bool pass = true, bool see = true);
+        TerrainType(char display = '.', charAttr chAt = WHITEBLACK, bool pass = true, bool see = true);
         /** Default destructor */
         virtual ~TerrainType();
         /** Access displayChar
@@ -16,12 +17,15 @@ class TerrainType
          */
         char getDisplayChar() const {return displayChar;}
         void setDisplayChar(char symbol) {displayChar = symbol;}
+        charAttr getCharAttr() const {return attr;}
+        void setCharAttr(charAttr symbol) {attr = symbol;}
         bool isPassable() const {return passable;}
     protected:
     private:
         char displayChar; //!< Member variable "displayChar"
         bool passable;
         bool transparent;
+        charAttr attr;
 };
 
 #endif // TERRAINTYPE_H

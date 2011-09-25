@@ -42,6 +42,8 @@
 		<Unit filename="BorderArea.h" />
 		<Unit filename="CharRaster.cpp" />
 		<Unit filename="CharRaster.h" />
+		<Unit filename="Color.cpp" />
+		<Unit filename="Color.h" />
 		<Unit filename="Controller.cpp" />
 		<Unit filename="Controller.h" />
 		<Unit filename="CurrentArea.cpp" />

@@ -3,6 +3,7 @@
 #include "Player.h"
 #include <ncurses.h>
 #include "CharRaster.h"
+#include "Color.h"
 
 using namespace std;
 
@@ -12,9 +13,10 @@ int main()
     raw();
     noecho();
     keypad(stdscr, true);
+    define_color();
     const TerrainType floor('.');
-    const TerrainType wall('#', false, false);
-    const TerrainType six('6');
+    const TerrainType wall('#', WHITEBLACK, false, false);
+    const TerrainType six('6', REDBLACK);
     const TerrainType four('4');
     const TerrainType five('5');
     const TerrainType stair('=');
@@ -35,6 +37,7 @@ int main()
             bigPlace.setTerrain(wall, j, bigPlace.getHeight()-1);
         }
     }
+    bigPlace.setTerrain(six, 7, 7);
     LocalArea bottomStair(stair, 1, 1);
     bigPlace.nullTerrain(3, 3);
     bigPlace.addBorderArea(BorderArea(bottomStair, 3, 3, 5));
@@ -53,7 +56,7 @@ int main()
     bigPlace.addBorderArea(BorderArea(bigPlace, -9, 0, 0, DEGREE_90));
     bigPlace.addBorderArea(BorderArea(bigPlace, 0, 9, 0, DEGREE_180));
     bigPlace.addBorderArea(BorderArea(bigPlace, 9, 0, 0, DEGREE_270));
-    Body character(Location(bigPlace, 2, 2), 5) ;
+    Body character(Location(bigPlace, 2, 2), 5, '@', REDBLACK);
     Player player(character);
     refresh();
     player.controlLoop();
