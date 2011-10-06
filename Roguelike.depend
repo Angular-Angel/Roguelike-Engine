@@ -3,7 +3,7 @@
 
 1304868827 source:/home/greg/Programming/C++/Roguelike/thing.cpp
 
-1316978641 source:/home/greg/Programming/C++/Roguelike/main.cpp
+1317591858 source:/home/greg/Programming/C++/Roguelike/main.cpp
 	<iostream>
 	"LocalArea.h"
 	"Player.h"
@@ -22,7 +22,7 @@
 	"LocalArea.h"
 	"Body.h"
 
-1315413136 /home/greg/Programming/C++/Roguelike/LocalArea.h
+1317315206 /home/greg/Programming/C++/Roguelike/LocalArea.h
 	"TerrainType.h"
 	<vector>
 	<iostream>
@@ -38,7 +38,7 @@
 1312600469 /home/greg/Programming/C++/Roguelike/Entity.h
 	"Location.h"
 
-1316096627 source:/home/greg/Programming/C++/Roguelike/Player.cpp
+1317331341 source:/home/greg/Programming/C++/Roguelike/Player.cpp
 	"Player.h"
 
 1315950512 /home/greg/Programming/C++/Roguelike/Player.h
@@ -52,10 +52,10 @@
 1309813352 /home/greg/Programming/C++/Roguelike/Viewer.h
 	"Entity.h"
 
-1311277930 source:/home/greg/Programming/C++/Roguelike/Location.cpp
+1317605455 source:/home/greg/Programming/C++/Roguelike/Location.cpp
 	"Location.h"
 
-1316291752 /home/greg/Programming/C++/Roguelike/Location.h
+1317327882 /home/greg/Programming/C++/Roguelike/Location.h
 	"LocalArea.h"
 
 1316291751 source:/home/greg/Programming/C++/Roguelike/BorderArea.cpp
@@ -66,7 +66,7 @@
 1315775234 /home/greg/Programming/C++/Roguelike/BorderArea.h
 	"Rotation.h"
 
-1316271705 source:/home/greg/Programming/C++/Roguelike/CurrentArea.cpp
+1317005950 source:/home/greg/Programming/C++/Roguelike/CurrentArea.cpp
 	"CurrentArea.h"
 
 1315959281 /home/greg/Programming/C++/Roguelike/CurrentArea.h
@@ -83,7 +83,7 @@
 	"LocalArea.h"
 	"Location.h"
 
-1316978709 source:/home/greg/Programming/C++/Roguelike/LocalAreaTerrain.cpp
+1317591858 source:/home/greg/Programming/C++/Roguelike/LocalAreaTerrain.cpp
 	"LocalArea.h"
 	"Body.h"
 
@@ -110,7 +110,7 @@
 	"CharRaster.h"
 	<iostream>
 
-1316993061 /home/greg/Programming/C++/Roguelike/CharRaster.h
+1317333158 /home/greg/Programming/C++/Roguelike/CharRaster.h
 	<vector>
 	"Rotation.h"
 	"Color.h"
@@ -121,13 +121,17 @@
 1313899739 source:/home/greg/Programming/C++/Roguelike/Rotation.cpp
 	"Rotation.h"
 
-1316919444 source:/home/greg/Programming/C++/Roguelike/Body.cpp
+1317597051 source:/home/greg/Programming/C++/Roguelike/Body.cpp
 	"Body.h"
 	"Controller.h"
+	<stdlib.h>
+	"Line.h"
+	"DisplayManager.h"
 
-1316919444 /home/greg/Programming/C++/Roguelike/Body.h
+1317328305 /home/greg/Programming/C++/Roguelike/Body.h
 	"Color.h"
 	"Location.h"
+	<vector>
 
 1315950391 /home/greg/Programming/C++/Roguelike/Controller.h
 	"Body.h"
@@ -140,4 +144,12 @@
 
 1316982283 /home/greg/Programming/C++/Roguelike/Color.h
 	<ncurses.h>
+
+1317335867 source:/home/greg/Programming/C++/Roguelike/Line.cpp
+	"Line.h"
+	<stdlib.h>
+
+1317263057 /home/greg/Programming/C++/Roguelike/Line.h
+	<vector>
+	"Location.h"
 

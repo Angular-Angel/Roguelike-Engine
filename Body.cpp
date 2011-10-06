@@ -1,5 +1,8 @@
 #include "Body.h"
 #include "Controller.h"
+#include <stdlib.h>
+#include "Line.h"
+#include "DisplayManager.h"
 
 Body::Body(Location place, int sight, char rep, charAttr col) : location(place), sightRange(sight), symbol(rep), attr(col), control(NULL)
 {
@@ -49,3 +52,26 @@ void Body::move(int x, int y)
     return;
 }
 
+CharRaster Body::getVision(int width, int height)
+{
+    CharRaster vision(width, height);
+    vector<Location> line;
+    for (int i = -getSightRange(); i <= getSightRange(); i++)
+    {
+        visionLine(vision, lineTo(location, location.getX() - getSightRange(), location.getY() + i));
+        visionLine(vision, lineTo(location, location.getX() + getSightRange(), location.getY() + i));
+        visionLine(vision, lineTo(location, location.getX() + i, location.getY() - getSightRange()));
+        visionLine(vision, lineTo(location, location.getX() + i, location.getY() + getSightRange()));
+    }
+    return vision;
+}
+
+void Body::visionLine(CharRaster& ch, vector<Location> line)
+{
+    for (int i = 0; i < line.size(); i++)
+    {
+        ch.setCharAttr(line[i].getX(), line[i].getY(), line[i].getTerrain()->getCharAttr(), line[i].getTerrain()->getDisplayChar());
+        DisplayManager::getDisplayManager().printTerrain(ch);
+        getch();
+    }
+}

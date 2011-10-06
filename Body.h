@@ -3,6 +3,7 @@
 
 #include "Color.h"
 #include "Location.h"
+#include <vector>
 
 class Controller;
 
@@ -34,8 +35,10 @@ class Body
         void print();
         void moveTo(int x, int y);
         void move(int x, int y);
+        CharRaster getVision(int width, int height);
     protected:
     private:
+    void visionLine(CharRaster&, vector<Location>);
     Controller* control;
     Location location;
     int sightRange;

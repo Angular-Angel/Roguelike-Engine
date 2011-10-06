@@ -26,6 +26,7 @@ class Location
          * \param val New value to set
          */
         void setY(int val) { y = val; }
+        void move(int X, int Y) {x += X; y += Y;}
         /** Access localArea
          * \return The current value of localArea
          */
@@ -35,6 +36,7 @@ class Location
          */
         void setLocalArea(LocalArea val) { localArea = &val; }
         const TerrainType* getTerrain() {return getLocalArea().getTerrain(getX(), getY());}
+        void correct();
     protected:
     private:
         LocalArea* localArea; //!< Member variable "localArea"

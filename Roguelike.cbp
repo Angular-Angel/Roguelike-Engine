@@ -50,6 +50,8 @@
 		<Unit filename="CurrentArea.h" />
 		<Unit filename="DisplayManager.cpp" />
 		<Unit filename="DisplayManager.h" />
+		<Unit filename="Line.cpp" />
+		<Unit filename="Line.h" />
 		<Unit filename="LocalArea.cpp" />
 		<Unit filename="LocalArea.h" />
 		<Unit filename="LocalAreaBorder.cpp" />

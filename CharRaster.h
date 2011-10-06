@@ -14,11 +14,12 @@ class CharRaster
         CharRaster(unsigned int x = 1, unsigned int y = 1, char ch = ' ', charAttr chAt = WHITEBLACK);
         /** Default destructor */
         virtual ~CharRaster();
-        char getChar(unsigned int x, unsigned int y) {return charImage[y][x];}
-        void setChar(unsigned int x, unsigned int y, char ch) {charImage[y][x] = ch;}
-        charAttr getCharAttr(unsigned int x, unsigned int y) {return charAttrs[y][x];}
-        void setCharAttr(unsigned int x, unsigned int y, charAttr ch) {charAttrs[y][x] = ch;}
-        void setCharAttr(unsigned int x, unsigned int y, charAttr chAttr, char ch) {charAttrs[y][x] = chAttr; charImage[y][x] = ch;}
+        char getChar(unsigned int x, unsigned int y) {if (y >= charAttrs.size() || x >= charAttrs[y].size()) return ' '; return charImage[y][x];}
+        void setChar(unsigned int x, unsigned int y, char ch) {if (y >= charAttrs.size() || x >= charAttrs[y].size()) return; charImage[y][x] = ch;}
+        charAttr getCharAttr(unsigned int x, unsigned int y) {if (y >= charAttrs.size() || x >= charAttrs[y].size()) return WHITEBLACK; return charAttrs[y][x];}
+        void setCharAttr(unsigned int x, unsigned int y, charAttr ch) {if (y >= charAttrs.size() || x >= charAttrs[y].size()) return; charAttrs[y][x] = ch;}
+        void setCharAttr(unsigned int x, unsigned int y, charAttr chAttr, char ch) {if (y >= charAttrs.size() || x >= charAttrs[y].size()) return;
+                                                                                    charAttrs[y][x] = chAttr; charImage[y][x] = ch;}
         void rotate(Rotation r);
         void flipHorizontal();
         void flipVertical();

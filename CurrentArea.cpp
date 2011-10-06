@@ -100,7 +100,7 @@ void CurrentArea::print()
     {
         if (area->borders[i].getElevation() > 25)
         break;
-        if (!areaPrinted && (area->borders[i].getElevation() <= 0 && area->borders[i+1].getElevation() > 0))
+        if (!areaPrinted && area->borders[i].getElevation() <= 0 && area->borders[i+1].getElevation() > 0)
         {
             scrn.insertCharRaster(areaRaster, scrn.getWidth()/2 - getX(), scrn.getHeight()/2 - getY());
             areaPrinted = true;

@@ -73,14 +73,6 @@ public:
     void addBody(Body& ent);
     void removeBody(Body* ent);
     vector<BorderArea> borders;
-protected:
-private:
-    /*
-        void printDegree_0(WINDOW* output, bool mirroredx = false, bool mirroredy = false);
-        void printDegree_90(WINDOW* output, bool mirroredx = false, bool mirroredy = false);
-        void printDegree_180(WINDOW* output, bool mirroredx = false, bool mirroredy = false);
-        void printDegree_270(WINDOW* output, bool mirroredx = false, bool mirroredy = false);
-    */
 };
 
 #endif // LOCALAREA_H
