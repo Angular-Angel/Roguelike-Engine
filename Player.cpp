@@ -13,7 +13,8 @@ void Player::controlLoop()
 {
     int ch;
     int moveDir;
-    viewPoint.print();
+    CharRaster vision = getBody().getVision(10, 10);
+    DisplayManager::getDisplayManager().printTerrain(vision);
     while((ch = getch()) != 'q')
     {
         switch (ch)
@@ -100,7 +101,9 @@ void Player::controlLoop()
             }
 
         }
-        viewPoint.print();
+        vision = getBody().getVision(10, 10);
+        DisplayManager::getDisplayManager().printTerrain(vision);
+        //viewPoint.print(); //Draws the view without line of sight.
     }
 }
 

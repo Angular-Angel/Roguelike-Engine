@@ -10,6 +10,10 @@ Location::~Location()
     //dtor
 }
 
+/*
+This function is supposed to correct for the transition between LocalAreas.
+*/
+
 void Location::correct()
 {
     if (getTerrain() == NULL)
@@ -22,6 +26,5 @@ void Location::correct()
                 return;
             }
         }
-        getch();
     }
 }

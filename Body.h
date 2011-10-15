@@ -4,6 +4,7 @@
 #include "Color.h"
 #include "Location.h"
 #include <vector>
+#include "Line.h"
 
 class Controller;
 
@@ -38,7 +39,7 @@ class Body
         CharRaster getVision(int width, int height);
     protected:
     private:
-    void visionLine(CharRaster&, vector<Location>);
+    void visionLine(CharRaster&, Line);
     Controller* control;
     Location location;
     int sightRange;

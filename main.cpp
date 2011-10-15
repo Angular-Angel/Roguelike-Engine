@@ -5,6 +5,10 @@
 #include "CharRaster.h"
 #include "Color.h"
 
+/*TODO
+debug by having lineTo print to cerr the coordinates of each location it finds.
+*/
+
 using namespace std;
 
 int main()
@@ -56,7 +60,7 @@ int main()
     bigPlace.addBorderArea(BorderArea(bigPlace, -9, 0, 0, DEGREE_90));
     bigPlace.addBorderArea(BorderArea(bigPlace, 0, 9, 0, DEGREE_180));
     bigPlace.addBorderArea(BorderArea(bigPlace, 9, 0, 0, DEGREE_270));
-    Body character(Location(bigPlace, 2, 2), 3, '@', GREENBLACK);
+    Body character(Location(bigPlace, 2, 2), 2, '@', GREENBLACK);
     Player player(character);
     refresh();
     player.controlLoop();

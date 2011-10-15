@@ -1,7 +1,6 @@
 #include "Body.h"
 #include "Controller.h"
 #include <stdlib.h>
-#include "Line.h"
 #include "DisplayManager.h"
 
 Body::Body(Location place, int sight, char rep, charAttr col) : location(place), sightRange(sight), symbol(rep), attr(col), control(NULL)
@@ -58,20 +57,23 @@ CharRaster Body::getVision(int width, int height)
     vector<Location> line;
     for (int i = -getSightRange(); i <= getSightRange(); i++)
     {
-        visionLine(vision, lineTo(location, location.getX() - getSightRange(), location.getY() + i));
-        visionLine(vision, lineTo(location, location.getX() + getSightRange(), location.getY() + i));
-        visionLine(vision, lineTo(location, location.getX() + i, location.getY() - getSightRange()));
-        visionLine(vision, lineTo(location, location.getX() + i, location.getY() + getSightRange()));
+        visionLine(vision, Line(location, location.getX() - getSightRange(), location.getY() + i));
+        visionLine(vision, Line(location, location.getX() + getSightRange(), location.getY() + i));
+        visionLine(vision, Line(location, location.getX() + i, location.getY() - getSightRange()));
+        visionLine(vision, Line(location, location.getX() + i, location.getY() + getSightRange()));
     }
+    vision.setCharAttr(getLocation().getX(), getLocation().getY(), getCharAttr(), getSymbol());
     return vision;
 }
 
-void Body::visionLine(CharRaster& ch, vector<Location> line)
+void Body::visionLine(CharRaster& ch, Line line)
 {
     for (int i = 0; i < line.size(); i++)
     {
-        ch.setCharAttr(line[i].getX(), line[i].getY(), line[i].getTerrain()->getCharAttr(), line[i].getTerrain()->getDisplayChar());
-        DisplayManager::getDisplayManager().printTerrain(ch);
-        getch();
+        if (line.getTerrain(i) == NULL)
+        return;
+        if (!line.getTerrain(i)->isTransparent())
+        return;
+        ch.setCharAttr(line.getX(i), line.getY(i), line.getTerrain(i)->getCharAttr(), line.getTerrain(i)->getDisplayChar());
     }
 }

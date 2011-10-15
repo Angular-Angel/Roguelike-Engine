@@ -20,6 +20,7 @@ class TerrainType
         charAttr getCharAttr() const {return attr;}
         void setCharAttr(charAttr symbol) {attr = symbol;}
         bool isPassable() const {return passable;}
+        bool isTransparent() const {return transparent;}
     protected:
     private:
         char displayChar; //!< Member variable "displayChar"

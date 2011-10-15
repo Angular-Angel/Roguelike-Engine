@@ -3,11 +3,9 @@
 
 #define SGN(a) (((a)<0) ? -1 : 1)
 
-vector<Location> lineTo(Location loc, int x2, int y2)
+Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2), y2(Y2)
 {
-    vector<Location> ret;
-    int x1 = loc.getX();
-    int y1 = loc.getY();
+    line = vector<Location>();
     int dx = x2 - x1;
     int dy = y2 - y1;
     int ax = abs(dx) << 1;
@@ -30,7 +28,7 @@ vector<Location> lineTo(Location loc, int x2, int y2)
         {
             cur.move(sx, sy);
             cur.correct();
-            ret.push_back(cur);
+            addLocation(cur);
         }
         while ((cur.getX() != x2 || cur.getY() != y2) &&
                 (cur.getX() >= xmin && cur.getX() <= xmax && cur.getY() >= ymin && cur.getY() <= ymax));
@@ -47,7 +45,7 @@ vector<Location> lineTo(Location loc, int x2, int y2)
             cur.move(sx, 0);
             t += ay;
             cur.correct();
-            ret.push_back(cur);
+            addLocation(cur);
         }
         while ((cur.getX() != x2 || cur.getY() != y2) &&
                 (cur.getX() >= xmin && cur.getX() <= xmax && cur.getY() >= ymin && cur.getY() <= ymax));
@@ -64,10 +62,86 @@ vector<Location> lineTo(Location loc, int x2, int y2)
             cur.move(0, sy);
             t += ax;
             cur.correct();
-            ret.push_back(cur);
+            addLocation(cur);
         }
         while ((cur.getX() != x2 || cur.getY() != y2) &&
                 (cur.getX() >= xmin && cur.getX() <= xmax && cur.getY() >= ymin && cur.getY() <= ymax));
     }
-    return ret;
+}
+
+int Line::getX(int index)
+{
+    int dx = x2 - x1;
+    int dy = y2 - y1;
+    int ax = abs(dx) << 1;
+    int ay = abs(dy) << 1;
+    int sx = SGN(dx);
+    int sy = SGN(dy);
+    int t = ay - (ax >> 1);
+    if (dx == 0) sx = 0;
+    if (dy == 0) sy = 0;
+    int x = x1;
+    int cur;
+    if (ax >= ay)
+    {
+        return index;
+    }
+    else
+    {
+        do
+        {
+            if (t > 0)
+            {
+                x++;
+            }
+            t += ax;
+            cur++;
+        }
+        while (cur < index);
+    }
+    return x;
+
+}
+
+int Line::getY(int index)
+{
+    int dx = x2 - x1;
+    int dy = y2 - y1;
+    int ax = abs(dx) << 1;
+    int ay = abs(dy) << 1;
+    int sx = SGN(dx);
+    int sy = SGN(dy);
+    int t = ay - (ax >> 1);
+    if (dx == 0) sx = 0;
+    if (dy == 0) sy = 0;
+    int y = y1;
+    int cur;
+    if (ax <= ay)
+    {
+        return index;
+    }
+    else
+    {
+        do
+        {
+            if (t > 0)
+            {
+                y++;
+            }
+            t += ay;
+            cur++;
+        }
+        while (cur < index);
+    }
+    return y;
+}
+
+Line::Line(int X1, int Y1, int X2, int Y2) : x1(X1), y1(Y1), x2(X2), y2(Y2)
+{
+    line = vector<Location>();
+}
+
+Line::~Line()
+{
+    //dtor
 }
