@@ -15,8 +15,9 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="../../../../../lib/libncursesw.so.5.7" />
-					<Add library="../../../../../lib/libncurses.so.5.7" />
+					<Add library="../../../../../lib/libncurses.so.5.9" />
+					<Add library="../../../../../lib/libncursesw.so.5.9" />
+					<Add library="../../../../../lib/libtinfo.so.5.9" />
 				</Linker>
 			</Target>
 			<Target title="Release">

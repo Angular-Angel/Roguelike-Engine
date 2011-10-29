@@ -36,7 +36,7 @@ class Location
          */
         void setLocalArea(LocalArea val) { localArea = &val; }
         const TerrainType* getTerrain() {return getLocalArea().getTerrain(getX(), getY());}
-        void correct();
+        bool correct();
     protected:
     private:
         LocalArea* localArea; //!< Member variable "localArea"

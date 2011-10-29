@@ -14,7 +14,9 @@ Location::~Location()
 This function is supposed to correct for the transition between LocalAreas.
 */
 
-void Location::correct()
+
+
+bool Location::correct()
 {
     if (getTerrain() == NULL)
     {
@@ -23,8 +25,10 @@ void Location::correct()
             if (getLocalArea().borders[i].getLocation(x, y).getTerrain() != NULL)
             {
                 *this = getLocalArea().borders[i].getLocation(x, y);
-                return;
+                return true;
             }
         }
+        return false;
     }
+    return true;
 }
