@@ -5,30 +5,31 @@
 
 Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2), y2(Y2)
 {
-    line = vector<Location>(); //this is a list of the spots that are in the
-    int dx = x2 - x1;
+    line = vector<Location>(); //this is a list of the spots that are in the line.
+    int dx = x2 - x1; //change in x and y.
     int dy = y2 - y1;
-    int ax = abs(dx) << 1;
+    int ax = abs(dx) << 1; //absolute values of x and y multiplied by 2.
     int ay = abs(dy) << 1;
-    int sx = SGN(dx);
+    int sx = SGN(dx); //signs of x and y.
     int sy = SGN(dy);
     int t;
     if (dy == 0) sy = 0;
     if (dx == 0) sx = 0;
-    Location cur(loc);
+    Location cur(loc); //current location.
     int xmin = (x1 < x2 ? x1 : x2), ymin = (y1 < y2 ? y1 : y2),
                                            xmax = (x1 > x2 ? x1 : x2), ymax = (y1 > y2 ? y1 : y2);
     xmin -= abs(dx);
     ymin -= abs(dy);
     xmax += abs(dx);
-    ymax += abs(dy);
+    ymax += abs(dy); //minimums and maximums for x and y.
     if (ax == ay)
     {
 
         do
         {
             cur.move(sx, sy);
-            if (cur.correct());
+            if (!cur.correct())
+            return;
             addLocation(cur);
         }
         while ((cur.getX() != x2 || cur.getY() != y2) &&
@@ -46,7 +47,8 @@ Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2
             }
             cur.move(sx, 0);
             t += ay;
-            if (cur.correct());
+            if (!cur.correct());
+            return;
             addLocation(cur);
         }
         while ((cur.getX() != x2 || cur.getY() != y2) &&
@@ -64,7 +66,8 @@ Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2
             }
             cur.move(0, sy);
             t += ax;
-            if (cur.correct());
+            if (!cur.correct());
+            return;
             addLocation(cur);
         }
         while ((cur.getX() != x2 || cur.getY() != y2) &&
@@ -81,9 +84,9 @@ int Line::getX(int index)
     int sx = SGN(dx);
     int sy = SGN(dy);
     int t;
+    int x = x1;
     if (dx == 0) sx = 0;
     if (dy == 0) sy = 0;
-    int x = x1;
     int cur;
     if (ax >= ay)
     {
@@ -109,16 +112,16 @@ int Line::getX(int index)
 
 int Line::getY(int index)
 {
-    int dx = x2 - x1;
-    int dy = y2 - y1;
-    int ax = abs(dx) << 1;
+    int dx = x2 - x1; //change in x
+    int dy = y2 - y1; //change in y
+    int ax = abs(dx) << 1; //absolute values of x and y multiplied by 2.
     int ay = abs(dy) << 1;
-    int sx = SGN(dx);
+    int sx = SGN(dx); //whether x and y are positive or negative.
     int sy = SGN(dy);
     int t;
+    int y = y1;
     if (dx == 0) sx = 0;
     if (dy == 0) sy = 0;
-    int y = y1;
     int cur;
     if (ax <= ay)
     {
@@ -139,11 +142,6 @@ int Line::getY(int index)
         while (cur < index);
     }
     return y;
-}
-
-Line::Line(int X1, int Y1, int X2, int Y2) : x1(X1), y1(Y1), x2(X2), y2(Y2)
-{
-    line = vector<Location>();
 }
 
 Line::~Line()
