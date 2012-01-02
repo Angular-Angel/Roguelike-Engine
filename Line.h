@@ -23,6 +23,7 @@ class Line
         Line(int, int, int, int);
         vector<Location> line;
         int x1, y1, x2, y2;
+        int dx, dy, ax, ay, sx, sy;
 };
 
 #endif // LINE_H

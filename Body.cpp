@@ -54,6 +54,8 @@ void Body::move(int x, int y)
 CharRaster Body::getVision(int width, int height)
 {
     CharRaster vision(width, height);
+    //visionline(vision, Line(location, location.getX() - , location.getY() + i))
+
     for (int i = -getSightRange(); i <= getSightRange(); i++)
     {
         visionLine(vision, Line(location, location.getX() - getSightRange(), location.getY() + i));
@@ -69,7 +71,9 @@ void Body::visionLine(CharRaster& ch, Line line)
 {
     for (int i = 0; i < line.size(); i++)
     {
-        ch.setCharAttr(line.getX(i), line.getY(i), line.getTerrain(i)->getCharAttr(), line.getTerrain(i)->getDisplayChar());
+        ch.setCharAttr(line.getX(i) + getLocation().getX(), line.getY(i) + getLocation().getY(), line.getTerrain(i)->getCharAttr(), line.getTerrain(i)->getDisplayChar());
+        //cerr << i << line.getX(i) << line.getY(i) << line.getTerrain(i)->getDisplayChar();
+        //getch();
         if (!line.getTerrain(i)->isTransparent())
         {
             return;

@@ -5,14 +5,16 @@
 
 Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2), y2(Y2)
 {
+    //cerr << x1 << ',' << y1 << ',' << x2 << ',' << x2 << '#';
     line = vector<Location>(); //this is a list of the spots that are in the line.
-    int dx = x2 - x1; //change in x and y.
-    int dy = y2 - y1;
-    int ax = abs(dx) << 1; //absolute values of x and y multiplied by 2.
-    int ay = abs(dy) << 1;
-    int sx = SGN(dx); //signs of x and y.
-    int sy = SGN(dy);
+    dx = x2 - x1; //change in x and y.
+    dy = y2 - y1;
+    ax = abs(dx) << 1; //absolute values of dx and dy multiplied by 2.
+    ay = abs(dy) << 1;
+    sx = SGN(dx); //signs of x and y.
+    sy = SGN(dy);
     int t;
+    int curX = x1, curY = y1;
     if (dy == 0) sy = 0;
     if (dx == 0) sx = 0;
     Location cur(loc); //current location.
@@ -28,78 +30,80 @@ Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2
         do
         {
             cur.move(sx, sy);
+            curX += sx, curY += sy;
             if (!cur.correct())
             return;
             addLocation(cur);
         }
-        while ((cur.getX() != x2 || cur.getY() != y2) &&
-                (cur.getX() >= xmin && cur.getX() <= xmax && cur.getY() >= ymin && cur.getY() <= ymax));
+        while ((curX != x2 || curY != y2) &&
+                (curY >= xmin && curY <= xmax && curY >= ymin && curY <= ymax));
     }
     else if (ax > ay)
     {
         t = ay - (ax >> 1);
         do
         {
-            if (t > 0)
+            if (t >= 0)
             {
                 cur.move(0, sy);
+                curY += sy;
                 t -= ax;
             }
             cur.move(sx, 0);
+            curX += sx;
             t += ay;
             if (!cur.correct());
             return;
             addLocation(cur);
         }
-        while ((cur.getX() != x2 || cur.getY() != y2) &&
-                (cur.getX() >= xmin && cur.getX() <= xmax && cur.getY() >= ymin && cur.getY() <= ymax));
+        while ((curX != x2 || curY != y2) &&
+                (curX >= xmin && curX <= xmax && curY >= ymin && curY <= ymax));
     }
     else
     {
         t = ax - (ay >> 1);
         do
         {
-            if (t > 0)
+            if (t >= 0)
             {
                 cur.move(sx, 0);
+                curX += sx;
                 t -= ay;
             }
             cur.move(0, sy);
+            curY += sy;
             t += ax;
             if (!cur.correct());
             return;
             addLocation(cur);
         }
-        while ((cur.getX() != x2 || cur.getY() != y2) &&
-                (cur.getX() >= xmin && cur.getX() <= xmax && cur.getY() >= ymin && cur.getY() <= ymax));
+        while ((curX != x2 || curY != y2) &&
+                (curX >= xmin && curX <= xmax && curY >= ymin && curY <= ymax));
     }
 }
 
 int Line::getX(int index)
 {
-    int dx = x2 - x1;
-    int dy = y2 - y1;
-    int ax = abs(dx) << 1;
-    int ay = abs(dy) << 1;
-    int sx = SGN(dx);
-    int sy = SGN(dy);
-    int t;
     int x = x1;
-    if (dx == 0) sx = 0;
-    if (dy == 0) sy = 0;
-    int cur;
+    int cur = 0;
     if (ax >= ay)
     {
+        if (sx == 1)
         return index;
+        if (sx == -1)
+        return -index;
     }
     else
     {
+        cerr << "!";
+        getch();
+        int t;
         t = ax - (ay >> 1);
         do
         {
-            if (t > 0)
+            if (t >= 0)
             {
-                x++;
+                x += sx;
             }
             t += ax;
             cur++;
@@ -112,29 +116,26 @@ int Line::getX(int index)
 
 int Line::getY(int index)
 {
-    int dx = x2 - x1; //change in x
-    int dy = y2 - y1; //change in y
-    int ax = abs(dx) << 1; //absolute values of x and y multiplied by 2.
-    int ay = abs(dy) << 1;
-    int sx = SGN(dx); //whether x and y are positive or negative.
-    int sy = SGN(dy);
-    int t;
     int y = y1;
-    if (dx == 0) sx = 0;
-    if (dy == 0) sy = 0;
-    int cur;
+    int cur = 0;
     if (ax <= ay)
     {
+        if (sy == 1)
         return index;
+        if (sy == -1)
+        return -index;
     }
     else
     {
+        cerr << "!";
+        getch();
+        int t;
         t = ay - (ax >> 1);
         do
         {
-            if (t > 0)
+            if (t >= 0)
             {
-                y++;
+                y += sy;
             }
             t += ay;
             cur++;

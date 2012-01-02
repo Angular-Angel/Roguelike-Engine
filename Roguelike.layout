@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Body.cpp" open="1" top="1" tabpos="6">
-		<Cursor position="1489" topLine="44" />
+	<File name="Body.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="2137" topLine="48" />
 	</File>
-	<File name="Body.h" open="1" top="0" tabpos="12">
-		<Cursor position="1187" topLine="16" />
+	<File name="Body.h" open="1" top="0" tabpos="3">
+		<Cursor position="373" topLine="16" />
 	</File>
-	<File name="BorderArea.cpp" open="1" top="0" tabpos="11">
+	<File name="BorderArea.cpp" open="0" top="0" tabpos="11">
 		<Cursor position="330" topLine="13" />
 	</File>
 	<File name="BorderArea.h" open="0" top="0" tabpos="11">
 		<Cursor position="1008" topLine="0" />
 	</File>
-	<File name="CharRaster.cpp" open="1" top="0" tabpos="14">
+	<File name="CharRaster.cpp" open="0" top="0" tabpos="14">
 		<Cursor position="5658" topLine="176" />
 	</File>
-	<File name="CharRaster.h" open="1" top="0" tabpos="15">
+	<File name="CharRaster.h" open="0" top="0" tabpos="15">
 		<Cursor position="1314" topLine="3" />
 	</File>
 	<File name="Color.cpp" open="0" top="0" tabpos="15">
@@ -43,34 +43,34 @@
 	<File name="DisplayManager.h" open="0" top="0" tabpos="11">
 		<Cursor position="284" topLine="0" />
 	</File>
-	<File name="Line.cpp" open="1" top="0" tabpos="9">
-		<Cursor position="2635" topLine="104" />
+	<File name="Line.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="174" topLine="0" />
 	</File>
-	<File name="Line.h" open="1" top="0" tabpos="10">
-		<Cursor position="328" topLine="0" />
+	<File name="Line.h" open="1" top="0" tabpos="4">
+		<Cursor position="168" topLine="0" />
 	</File>
-	<File name="LocalArea.cpp" open="1" top="0" tabpos="1">
+	<File name="LocalArea.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="526" topLine="7" />
 	</File>
-	<File name="LocalArea.h" open="1" top="0" tabpos="2">
+	<File name="LocalArea.h" open="0" top="0" tabpos="2">
 		<Cursor position="1724" topLine="44" />
 	</File>
 	<File name="LocalAreaBorder.cpp" open="0" top="0" tabpos="11">
 		<Cursor position="22" topLine="0" />
 	</File>
-	<File name="LocalAreaTerrain.cpp" open="1" top="0" tabpos="3">
+	<File name="LocalAreaTerrain.cpp" open="0" top="0" tabpos="3">
 		<Cursor position="251" topLine="0" />
 	</File>
-	<File name="Location.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="233" topLine="0" />
+	<File name="Location.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="135" topLine="0" />
 	</File>
 	<File name="Location.h" open="0" top="0" tabpos="2">
 		<Cursor position="1119" topLine="13" />
 	</File>
-	<File name="Player.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="3187" topLine="80" />
+	<File name="Player.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="3321" topLine="83" />
 	</File>
-	<File name="Player.h" open="1" top="0" tabpos="8">
+	<File name="Player.h" open="0" top="0" tabpos="8">
 		<Cursor position="104" topLine="0" />
 	</File>
 	<File name="Rotation.cpp" open="0" top="0" tabpos="14">
@@ -79,14 +79,14 @@
 	<File name="Rotation.h" open="0" top="0" tabpos="15">
 		<Cursor position="157" topLine="0" />
 	</File>
-	<File name="TerrainType.cpp" open="1" top="0" tabpos="16">
+	<File name="TerrainType.cpp" open="0" top="0" tabpos="16">
 		<Cursor position="225" topLine="0" />
 	</File>
-	<File name="TerrainType.h" open="1" top="0" tabpos="13">
+	<File name="TerrainType.h" open="0" top="0" tabpos="13">
 		<Cursor position="787" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="2115" topLine="35" />
+	<File name="main.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="2149" topLine="36" />
 	</File>
 	<File name="oldcode.txt" open="0" top="0" tabpos="19">
 		<Cursor position="2611" topLine="65" />
