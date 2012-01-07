@@ -52,7 +52,7 @@ Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2
             cur.move(sx, 0);
             curX += sx;
             t += ay;
-            if (!cur.correct());
+            if (!cur.correct())
             return;
             addLocation(cur);
         }
@@ -73,7 +73,7 @@ Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2
             cur.move(0, sy);
             curY += sy;
             t += ax;
-            if (!cur.correct());
+            if (!cur.correct())
             return;
             addLocation(cur);
         }
@@ -95,8 +95,8 @@ int Line::getX(int index)
     }
     else
     {
-        cerr << "!";
-        getch();
+        //cerr << "!";
+        //getch();
         int t;
         t = ax - (ay >> 1);
         do
@@ -104,6 +104,7 @@ int Line::getX(int index)
             if (t >= 0)
             {
                 x += sx;
+                t -= ay;
             }
             t += ax;
             cur++;
@@ -127,8 +128,8 @@ int Line::getY(int index)
     }
     else
     {
-        cerr << "!";
-        getch();
+        //cerr << "!";
+        //getch();
         int t;
         t = ay - (ax >> 1);
         do
@@ -136,6 +137,7 @@ int Line::getY(int index)
             if (t >= 0)
             {
                 y += sy;
+                t -= ax;
             }
             t += ay;
             cur++;

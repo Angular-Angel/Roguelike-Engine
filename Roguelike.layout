@@ -43,7 +43,7 @@
 	<File name="DisplayManager.h" open="0" top="0" tabpos="11">
 		<Cursor position="284" topLine="0" />
 	</File>
-	<File name="Line.cpp" open="1" top="1" tabpos="1">
+	<File name="Line.cpp" open="1" top="0" tabpos="1">
 		<Cursor position="174" topLine="0" />
 	</File>
 	<File name="Line.h" open="1" top="0" tabpos="4">
@@ -67,7 +67,7 @@
 	<File name="Location.h" open="0" top="0" tabpos="2">
 		<Cursor position="1119" topLine="13" />
 	</File>
-	<File name="Player.cpp" open="1" top="0" tabpos="5">
+	<File name="Player.cpp" open="1" top="1" tabpos="5">
 		<Cursor position="3321" topLine="83" />
 	</File>
 	<File name="Player.h" open="0" top="0" tabpos="8">
