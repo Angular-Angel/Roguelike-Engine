@@ -66,12 +66,23 @@ CharRaster Body::getVision(int width, int height)
     vision.setCharAttr(getLocation().getX(), getLocation().getY(), getCharAttr(), getSymbol());
     return vision;
 }
+/*
 
+CharRaster Body::getVision(int width, int height)
+{
+    CharRaster vision(width, height);
+
+    //visionLine(vision, Line(location, location.getX() - getSightRange(), location.getY() - 4));
+    visionLine(vision, Line(location, location.getX() - getSightRange(), location.getY()));
+
+    vision.setCharAttr(getLocation().getX(), getLocation().getY(), getCharAttr(), getSymbol());
+    return vision;
+} */
 void Body::visionLine(CharRaster& ch, Line line)
 {
     for (int i = 0; i < line.size(); i++)
     {
-        ch.setCharAttr(line.getX(i) + getLocation().getX(), line.getY(i) + getLocation().getY(), line.getTerrain(i)->getCharAttr(), line.getTerrain(i)->getDisplayChar());
+        ch.setCharAttr(line.getX(i), line.getY(i), line.getTerrain(i)->getCharAttr(), line.getTerrain(i)->getDisplayChar());
         //cerr << i << line.getX(i) << line.getY(i) << line.getTerrain(i)->getDisplayChar();
         //getch();
         if (!line.getTerrain(i)->isTransparent())

@@ -88,10 +88,7 @@ int Line::getX(int index)
     int cur = 0;
     if (ax >= ay)
     {
-        if (sx == 1)
-        return index;
-        if (sx == -1)
-        return -index;
+        return x + index * sx;
     }
     else
     {
@@ -121,10 +118,7 @@ int Line::getY(int index)
     int cur = 0;
     if (ax <= ay)
     {
-        if (sy == 1)
-        return index;
-        if (sy == -1)
-        return -index;
+        return y + index * sy;
     }
     else
     {
