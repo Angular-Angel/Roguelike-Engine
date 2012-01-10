@@ -66,8 +66,8 @@ CharRaster Body::getVision(int width, int height)
     vision.setCharAttr(getLocation().getX(), getLocation().getY(), getCharAttr(), getSymbol());
     return vision;
 }
-/*
 
+/*
 CharRaster Body::getVision(int width, int height)
 {
     CharRaster vision(width, height);
@@ -77,7 +77,9 @@ CharRaster Body::getVision(int width, int height)
 
     vision.setCharAttr(getLocation().getX(), getLocation().getY(), getCharAttr(), getSymbol());
     return vision;
-} */
+}
+*/
+
 void Body::visionLine(CharRaster& ch, Line line)
 {
     for (int i = 0; i < line.size(); i++)

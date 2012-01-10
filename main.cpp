@@ -61,7 +61,7 @@ int main()
     bigPlace.addBorderArea(BorderArea(bigPlace, 0, 9, 0, DEGREE_180));
     bigPlace.addBorderArea(BorderArea(bigPlace, 9, 0, 0, DEGREE_270));
     LocalArea testPlace(floor, 14, 14);
-    Body character(Location(testPlace, 2, 2), 4, '@', GREENBLACK);
+    Body character(Location(bigPlace, 2, 2), 4, '@', GREENBLACK);
     Player player(character);
     refresh();
     player.controlLoop();
