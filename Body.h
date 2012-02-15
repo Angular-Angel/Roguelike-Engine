@@ -36,6 +36,7 @@ class Body
         void print();
         void moveTo(int x, int y);
         void move(int x, int y);
+        Line visionLine(int x, int y);
         CharRaster getVision(int width, int height);
     protected:
     private:

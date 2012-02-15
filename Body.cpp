@@ -67,19 +67,6 @@ CharRaster Body::getVision(int width, int height)
     return vision;
 }
 
-/*
-CharRaster Body::getVision(int width, int height)
-{
-    CharRaster vision(width, height);
-
-    //visionLine(vision, Line(location, location.getX() - getSightRange(), location.getY() - 4));
-    visionLine(vision, Line(location, location.getX() - getSightRange(), location.getY()));
-
-    vision.setCharAttr(getLocation().getX(), getLocation().getY(), getCharAttr(), getSymbol());
-    return vision;
-}
-*/
-
 void Body::visionLine(CharRaster& ch, Line line)
 {
     for (int i = 0; i < line.size(); i++)
@@ -91,5 +78,15 @@ void Body::visionLine(CharRaster& ch, Line line)
         {
             return;
         }
+    }
+}
+
+Line Body::visionLine(int x, int y)
+{
+    Line ret = Line(location, location.getX() + x, location.getY() + y);
+    for (int i = 0; i < ret.size(); i++)
+    {
+        if (ret.getTerrain(i) == NULL || !ret.getTerrain(i)->isTransparent())
+        ret.cutOff(i);
     }
 }

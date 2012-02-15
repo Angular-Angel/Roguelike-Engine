@@ -18,3 +18,5 @@ void Controller::move(int x, int y)
 void Controller::updatePos() {}
 
 void Controller::updateArea(BorderArea) {}
+
+void Controller::lookAt(Line) {}

@@ -9,6 +9,6 @@ enum charAttr {
     GREENBLACK = COLOR_PAIR(3)
 };
 
-void define_color();
+void define_colors();
 
 #endif//COLOR_H

@@ -13,8 +13,8 @@ void Player::controlLoop()
 {
     int ch;
     int moveDir;
-    CharRaster vision = getBody().getVision(10, 10);
-    DisplayManager::getDisplayManager().printTerrain(vision);
+    //CharRaster vision = getBody().getVision(20, 20);
+    //DisplayManager::getDisplayManager().printTerrain(vision);
     while((ch = getch()) != 'q')
     {
         switch (ch)
@@ -101,9 +101,10 @@ void Player::controlLoop()
             }
 
         }
-        vision = getBody().getVision(20, 20);
-        DisplayManager::getDisplayManager().printTerrain(vision);
+        //vision = getBody().getVision(20, 20);
+        //DisplayManager::getDisplayManager().printTerrain(vision);
         //viewPoint.print(); //Draws the view without line of sight.
+        updateVision();
     }
 }
 
@@ -145,4 +146,33 @@ void Player::updateArea(BorderArea border)
     if (border.isMirroredY())
     viewPoint.mirrorY();
     viewPoint.setArea(border.getArea());
+}
+
+void Player::updateVision()
+{
+    CharRaster vision = getBody().getVision(20, 20);
+    /*
+    vector<Line> lines = vector<Line>();
+    for (int i = -getBody().getSightRange(); i <= getBody().getSightRange(); i++)
+    {
+        lines.push_back(getBody().visionLine(-getBody().getSightRange(), i));
+        lines.push_back(getBody().visionLine(getBody().getSightRange(), i));
+        lines.push_back(getBody().visionLine(i, -getBody().getSightRange()));
+        lines.push_back(getBody().visionLine(i, getBody().getSightRange()));
+    }
+    for (int i = 0; i < lines.size(); i++)
+    {
+        for (int j = 0; j < lines[i].size(); j++)
+        {
+            vision.setCharAttr(lines[i].getX(j) + (vision.getWidth() / 2), lines[i].getY(j) + (vision.getHeight() / 2), lines[i].getTerrain(j)->getCharAttr(), lines[i].getTerrain(j)->getDisplayChar());
+        }
+    }
+    vision.setCharAttr(getBody().getLocation().getX(), getBody().getLocation().getY(),
+                       getBody().getCharAttr(), getBody().getSymbol()); */
+    vision.rotate(viewPoint.getRotation());
+    if (viewPoint.isMirroredX())
+    vision.flipHorizontal();
+    if (viewPoint.isMirroredY())
+    vision.flipVertical();
+    DisplayManager::getDisplayManager().printTerrain(vision);
 }

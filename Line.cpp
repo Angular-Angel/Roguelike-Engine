@@ -14,7 +14,6 @@ Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2
     sx = SGN(dx); //signs of x and y.
     sy = SGN(dy);
     int t;
-    int curX = x1, curY = y1;
     if (dy == 0) sy = 0;
     if (dx == 0) sx = 0;
     Location cur(loc); //current location.
@@ -30,13 +29,12 @@ Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2
         do
         {
             cur.move(sx, sy);
-            curX += sx, curY += sy;
             if (!cur.correct())
             return;
             addLocation(cur);
         }
-        while ((curX != x2 || curY != y2) &&
-                (curY >= xmin && curY <= xmax && curY >= ymin && curY <= ymax));
+        while ((cur.getX() != x2 || cur.getY() != y2) &&
+                (cur.getY() >= xmin && cur.getY() <= xmax && cur.getY() >= ymin && cur.getY() <= ymax));
     }
     else if (ax > ay)
     {
@@ -46,18 +44,16 @@ Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2
             if (t >= 0)
             {
                 cur.move(0, sy);
-                curY += sy;
                 t -= ax;
             }
             cur.move(sx, 0);
-            curX += sx;
             t += ay;
             if (!cur.correct())
             return;
             addLocation(cur);
         }
-        while ((curX != x2 || curY != y2) &&
-                (curX >= xmin && curX <= xmax && curY >= ymin && curY <= ymax));
+        while ((cur.getX() != x2 || cur.getY() != y2) &&
+                (cur.getX() >= xmin && cur.getX() <= xmax && cur.getY() >= ymin && cur.getY() <= ymax));
     }
     else
     {
@@ -67,18 +63,16 @@ Line::Line(Location loc, int X2, int Y2) : x1(loc.getX()), y1(loc.getY()), x2(X2
             if (t >= 0)
             {
                 cur.move(sx, 0);
-                curX += sx;
                 t -= ay;
             }
             cur.move(0, sy);
-            curY += sy;
             t += ax;
             if (!cur.correct())
             return;
             addLocation(cur);
         }
-        while ((curX != x2 || curY != y2) &&
-                (curX >= xmin && curX <= xmax && curY >= ymin && curY <= ymax));
+        while ((cur.getX() != x2 || cur.getY() != y2) &&
+                (cur.getX() >= xmin && cur.getX() <= xmax && cur.getY() >= ymin && cur.getY() <= ymax));
     }
 }
 
@@ -106,7 +100,7 @@ int Line::getX(int index)
             t += ax;
             cur++;
         }
-        while (cur < index);
+        while (cur <= index);
     }
     return x;
 
@@ -136,9 +130,17 @@ int Line::getY(int index)
             t += ay;
             cur++;
         }
-        while (cur < index);
+        while (cur <= index);
     }
     return y;
+}
+
+void Line::cutOff(int index)
+{
+    x2 = getX(index);
+    y2 = getY(index);
+    while (line.size() >= index)
+    line.pop_back();
 }
 
 Line::~Line()

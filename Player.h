@@ -16,6 +16,7 @@ class Player : public Controller
         * \return Current value of character.
         */
         void controlLoop();
+        void updateVision();
         virtual void updatePos();
         virtual void updateArea(BorderArea);
     protected:

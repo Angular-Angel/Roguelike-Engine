@@ -1,6 +1,6 @@
 #include "Color.h"
 
-void define_color()
+void define_colors()
 {
     start_color();
 

@@ -17,7 +17,7 @@ int main()
     raw();
     noecho();
     keypad(stdscr, true);
-    define_color();
+    define_colors();
     const TerrainType floor('.');
     const TerrainType wall('#', WHITEBLACK, false, false);
     const TerrainType six('6', REDBLACK);
@@ -52,7 +52,6 @@ int main()
     LocalArea topStair(stair, 1, 1);
     stairs.addBorderArea(BorderArea(topStair, 0, -1));
     bigPlace.nullTerrain(5, 5);
-    bigPlace.nullTerrain(5, 6);
     bigPlace.addBorderArea(BorderArea(topStair, 5, 5));
     topStair.addBorderArea(BorderArea(bigPlace, -5, -5, 5));
     topStair.addBorderArea(BorderArea(stairs, 0, 1, -5));
@@ -61,6 +60,14 @@ int main()
     bigPlace.addBorderArea(BorderArea(bigPlace, 0, 9, 0, DEGREE_180));
     bigPlace.addBorderArea(BorderArea(bigPlace, 9, 0, 0, DEGREE_270));
     LocalArea testPlace(floor, 14, 14);
+    for (int j = 0; j < testPlace.getWidth(); j++)
+    {
+        if (j != testPlace.getWidth()/2)
+        {
+            testPlace.setTerrain(wall, j, 0);
+            testPlace.setTerrain(wall, j, testPlace.getHeight()-1);
+        }
+    }
     Body character(Location(bigPlace, 2, 2), 4, '@', GREENBLACK);
     Player player(character);
     refresh();
