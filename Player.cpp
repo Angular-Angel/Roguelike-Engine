@@ -103,8 +103,8 @@ void Player::controlLoop()
         }
         //vision = getBody().getVision(20, 20);
         //DisplayManager::getDisplayManager().printTerrain(vision);
-        //viewPoint.print(); //Draws the view without line of sight.
-        updateVision();
+        viewPoint.print(); //Draws the view without line of sight.
+        //updateVision();
     }
 }
 
